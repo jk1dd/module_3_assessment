@@ -3,7 +3,9 @@ class Store
     @attrs = {}
   end
 
-  def find_all(zip)
-    BestbuyService.new
+  def self.find_all(zip)
+    BestbuyService.new(zip).find_stores.map do |store|
+      new(store)
+    end
   end
 end
