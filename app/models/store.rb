@@ -1,5 +1,5 @@
 class Store
-  def initialize(attrs={})
+  def initialize(attrs = {})
     @attrs = attrs
   end
 
