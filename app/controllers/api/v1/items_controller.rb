@@ -12,12 +12,10 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def create
-    # item = Item.new(item_params)
-    # if item.save
-    #   render json: Item.find(params[:id])
-    # end
-    # binding.pry
-    render json: Item.create(item_params)
+    item = Item.new(item_params)
+    if item.save
+      render json: item
+    end
   end
 
   private
