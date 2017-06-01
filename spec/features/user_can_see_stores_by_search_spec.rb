@@ -21,11 +21,13 @@ RSpec.feature 'User can search for stores' do
         expect(current_path).to eq(search_path)
         expect(page).to have_content("16 Total Stores")
         expect(page).to have_selector(".store", count: 10)
-        within (".store") do
-          expect(page).to have_content("Name: ")
-          expect(page).to have_content("Distance: ")
-          expect(page).to have_content("Phone Number: ")
-          expect(page).to have_content("Store Type: ")
+
+        within first(".store") do
+          expect(page).to have_content("Name: BEST BUY MOBILE - CHERRY CREEK SHOPPING CENTER")
+          expect(page).to have_content("City: DENVER")
+          expect(page).to have_content("Distance: 3.45")
+          expect(page).to have_content("Phone Number: 303-270-9189 ")
+          expect(page).to have_content("Store Type: Mobile SAS")
         end
       end
     end

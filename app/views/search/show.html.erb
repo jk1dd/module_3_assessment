@@ -1,2 +1,11 @@
 <h1>Stores for zip <%= @zip %></h1>
-<p><%= @stores.total %> Total Stores</p>
+<p><%= @total %> Total Stores</p>
+<%= @stores.each do |store| %>
+<div class="store">
+  <p>Name: <%= store.long_name %></p><br>
+  <p>City: <%= store.city %></p><br>
+  <p>Distance: <%= store.distance %></p><br>
+  <p>Phone Number: <%= store.phone %></p><br>
+  <p>Store Type: <%= store.store_type %></p><br>
+</div>
+<% end %>

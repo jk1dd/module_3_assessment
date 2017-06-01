@@ -4,6 +4,7 @@ class SearchController < ApplicationController
     # things = JSON.parse(response.body)
     # binding.pry
     @stores = Store.find_all(params[:zip])
+    @total = Store.total(params[:zip])
     # binding.pry
   end
 end

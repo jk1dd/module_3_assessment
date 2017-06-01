@@ -4,18 +4,36 @@ class Store
   end
 
   def self.find_all(zip)
-    la = BestbuyService.new(zip).find_stores.map do |store|
+    BestbuyService.new(zip).find_stores.map do |store|
       new(store)
     end
-    binding.pry
+  end
+
+  def self.total(zip)
+    BestbuyService.new(zip).find_total
   end
 
   def long_name
     attrs[:longName]
-    # binding.pry
   end
 
-  def total
-
+  def city
+    attrs[:city]
   end
+
+  def distance
+    attrs[:distance]
+  end
+
+  def phone
+    attrs[:phone]
+  end
+
+  def store_type
+    attrs[:storeType]
+  end
+
+  private
+  attr_reader :attrs
+
 end
