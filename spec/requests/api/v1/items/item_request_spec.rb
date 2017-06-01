@@ -44,7 +44,7 @@ describe 'Item API' do
   it "creates an item" do
     item_params = {name: "Water", description: "Earth's most precious resource", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCajC7VN-DohIcJhXYJpqL_rSYPOBwmelEipvw1bBMDaViyiAAocPuPlE"}
 
-    post '/api/v1/items', params: {item: item_params}
+    post '/api/v1/items', item: item_params
 
     item = Item.last
 
