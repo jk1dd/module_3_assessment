@@ -1,3 +1,10 @@
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:zip, "ZIP:") %>
+  <%= text_field_tag(:zip) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
@@ -15,4 +22,3 @@
     </div>
   <% end %>
 </div>
-
