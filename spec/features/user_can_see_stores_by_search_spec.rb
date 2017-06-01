@@ -14,8 +14,8 @@ RSpec.feature 'User can search for stores' do
     scenario 'she can see stores within 25 miles' do
       VCR.use_cassette('store_search') do
         visit '/'
-save_and_open_page
-        fill_in 'store[search]', with: "80202"
+# save_and_open_page
+        fill_in 'zip', with: "80202"
         click_on("search")
 
         expect(current_path).to eq(search_path)
