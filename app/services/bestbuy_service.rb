@@ -8,13 +8,11 @@ class BestbuyService
   def find_stores
     response = Faraday.get("https://api.bestbuy.com/v1/stores(area(#{zip},25))?apiKey=#{ENV['key']}&show=longName,city,distance,phone,storeType&format=json")
     stores = JSON.parse(response.body, symbolize_names: true)[:stores]
-    # binding.pry
   end
 
   def find_total
     response = Faraday.get("https://api.bestbuy.com/v1/stores(area(#{zip},25))?apiKey=#{ENV['key']}&show=longName,city,distance,phone,storeType&format=json")
     total = JSON.parse(response.body, symbolize_names: true)[:total]
-    # binding.pry
   end
 
   private
