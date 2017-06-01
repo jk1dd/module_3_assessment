@@ -2,13 +2,18 @@ class BestbuyService
   def initialize(zip)
     @zip = zip
     @key = ENV['key']
-    @_conn = Faraday.new('http://api.bestbuy.com/v1/stores')
+    # @_conn = Faraday.new('http://api.bestbuy.com/v1/stores')
   end
 
   def find_stores
-    response = conn.get("(area(#{zip},25))?apiKey=#{ENV['key']}&show=longName,city,distance,phone,storeType&format=json")
-    blah = JSON.parse(response.body)
-    binding.pry
+    response = Faraday.get("https://api.bestbuy.com/v1/stores(area(#{zip},25))?apiKey=#{ENV['key']}&show=longName,city,distance,phone,storeType&format=json")
+    stores = JSON.parse(response.body, symbolize_names: true)[:stores]
+    # binding.pry
+  end
+
+  def find_total
+    response = Faraday.get("https://api.bestbuy.com/v1/stores(area(#{zip},25))?apiKey=#{ENV['key']}&show=longName,city,distance,phone,storeType&format=json")
+    JSON.parse(response.body, symbolize_names: true)[:total]
   end
 
   private
